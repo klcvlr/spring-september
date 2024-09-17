@@ -3,10 +3,10 @@ package com.petclinic.core;
 import java.time.LocalDate;
 
 public class Visit {
-    private int id;
-    private String referenceNumber;
-    private LocalDate date;
-    private String purpose;
+    private final int id;
+    private final String referenceNumber;
+    private final LocalDate date;
+    private final String purpose;
 
     public Visit(int id, String referenceNumber, LocalDate date, String purpose) {
         this.id = id;
@@ -15,16 +15,16 @@ public class Visit {
         this.purpose = purpose;
     }
 
+    public LocalDate getDate() {
+        return date;
+    }
+
     public int getId() {
         return id;
     }
 
     public String getReferenceNumber() {
         return referenceNumber;
-    }
-
-    public LocalDate getDate() {
-        return date;
     }
 
     public String getPurpose() {

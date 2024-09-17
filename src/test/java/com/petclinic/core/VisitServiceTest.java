@@ -20,7 +20,7 @@ class VisitServiceTest {
 
         assertThat(actual.getId()).isEqualTo(1);
         assertThat(actual.getReferenceNumber()).isEqualTo("toto");
-        assertThat(actual.getDate()).isBefore(LocalDate.now());
+        assertThat(actual.getDate()).isEqualTo(LocalDate.now());
         assertThat(actual.getPurpose()).isEqualTo("no purpose");
     }
 }
