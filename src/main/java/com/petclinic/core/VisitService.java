@@ -14,4 +14,8 @@ public class VisitService {
     public Visit findByReferenceNumber(String reference) {
         return visitRepository.findByReferenceNumber(reference);
     }
+
+    public void save(Visit visit){
+        visitRepository.save(visit);
+    }
 }

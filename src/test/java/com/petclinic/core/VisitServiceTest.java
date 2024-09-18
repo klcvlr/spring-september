@@ -1,5 +1,6 @@
 package com.petclinic.core;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,14 +14,22 @@ class VisitServiceTest {
 
     @Autowired
     private VisitService visitService;
+    @Autowired
+    private VisitRepository visitRepository;
+
+    @BeforeEach
+    void setUp() {
+        Visit visit = new Visit(null, "refNum", LocalDate.of(2024, 9, 18), "Some purpose");
+        visitRepository.save(visit);
+    }
 
     @Test
     void shouldFindByReferenceNumber() {
-        Visit actual = visitService.findByReferenceNumber("toto");
+        Visit actual = visitService.findByReferenceNumber("refNum");
 
         assertThat(actual.getId()).isEqualTo(1);
-        assertThat(actual.getReferenceNumber()).isEqualTo("toto");
+        assertThat(actual.getReferenceNumber()).isEqualTo("refNum");
         assertThat(actual.getDate()).isEqualTo(LocalDate.now());
-        assertThat(actual.getPurpose()).isEqualTo("no purpose");
+        assertThat(actual.getPurpose()).isEqualTo("Some purpose");
     }
 }

@@ -14,7 +14,7 @@ public class Visit {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
     @Column(unique = true)
     private String referenceNumber;
     private LocalDate date;
@@ -24,7 +24,7 @@ public class Visit {
     public Visit() {
     }
 
-    public Visit(int id, String referenceNumber, LocalDate date, String purpose) {
+    public Visit(Integer id, String referenceNumber, LocalDate date, String purpose) {
         this.id = id;
         this.referenceNumber = referenceNumber;
         this.date = date;
@@ -35,7 +35,7 @@ public class Visit {
         return date;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
