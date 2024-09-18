@@ -32,4 +32,12 @@ class VisitServiceTest {
         assertThat(actual.getDate()).isEqualTo(LocalDate.now());
         assertThat(actual.getPurpose()).isEqualTo("Some purpose");
     }
+
+    @Test
+    void shouldNotFindReferenceNumber() {
+        Visit visit = visitService.findByReferenceNumber("DOES_NOT_EXIST");
+
+        assertThat(visit).isNull();
+    }
+
 }
