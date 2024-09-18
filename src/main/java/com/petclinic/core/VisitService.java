@@ -11,7 +11,7 @@ public class VisitService {
         this.visitRepository = visitRepository;
     }
 
-    public Visit findByReferenceNumber(String reference){
+    public Visit findByReferenceNumber(String reference) {
         return visitRepository.findByReferenceNumber(reference);
     }
 }

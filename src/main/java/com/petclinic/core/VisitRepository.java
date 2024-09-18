@@ -10,4 +10,5 @@ public class VisitRepository {
     public Visit findByReferenceNumber(String referenceNumber) {
         return new Visit(1, referenceNumber, LocalDate.now(), "no purpose");
     }
+
 }
