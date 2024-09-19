@@ -1,8 +1,13 @@
 package com.petclinic.core;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+
+import java.util.List;
 
 @Entity
 public class Owner {
@@ -13,6 +18,9 @@ public class Owner {
     private String firstName;
     private String lastName;
     private Double accountStatement;
+    @OneToMany(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "owner_id")
+    private List<Pet> pets;
 
     public Owner() {
     }
@@ -50,5 +58,14 @@ public class Owner {
 
     public void setAccountStatement(Double accountStatement) {
         this.accountStatement = accountStatement;
+    }
+
+
+    public List<Pet> getPets() {
+        return pets;
+    }
+
+    public void setPets(List<Pet> pets) {
+        this.pets = pets;
     }
 }
