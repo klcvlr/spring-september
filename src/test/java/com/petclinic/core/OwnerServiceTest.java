@@ -4,12 +4,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
+@Transactional
 class OwnerServiceTest {
 
     @Autowired
@@ -25,10 +28,10 @@ class OwnerServiceTest {
 
     @Test
     void shouldFindOwnerByFirstName() {
-        Owner owner = ownerService.findByFirstName("joe");
+        Optional<Owner> owner = ownerService.findByFirstName("joe");
 
         assertThat(owner).isNotNull();
-        assertThat(owner.getFirstName()).isEqualTo("joe");
+        assertThat(owner.get().getFirstName()).isEqualTo("joe");
     }
 
     @Test

@@ -2,6 +2,8 @@ package com.petclinic.core;
 
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class VisitService {
 
@@ -17,5 +19,9 @@ public class VisitService {
 
     public void save(Visit visit){
         visitRepository.save(visit);
+    }
+
+    public Optional<Visit> findById(Integer id) {
+        return visitRepository.findById(id);
     }
 }
