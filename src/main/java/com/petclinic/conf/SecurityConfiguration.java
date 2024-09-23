@@ -16,7 +16,8 @@ public class SecurityConfiguration {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http.authorizeHttpRequests((auth) -> auth
+        return http
+                .authorizeHttpRequests((auth) -> auth
                         .requestMatchers("/visit/**").hasAnyRole("USER", "ADMIN")
                         .requestMatchers(HttpMethod.GET, "/owner/**").hasAnyRole("USER","ADMIN")
                         .requestMatchers(HttpMethod.POST, "/owner/**").hasRole("ADMIN")
